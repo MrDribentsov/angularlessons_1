@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <div ng-app="AddNumbersApp">
+		<div ng-controller="AddNumbersController">
+			<input ng-model="a" type="number" ng-keyup="AddNumbers()">+
+			<input ng-model="b" type="number" ng-keyup="AddNumbers()">=
+			<input type="text" value="{{sum}}">
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script type="text/javascript">
+		angular.module('AddNumbersApp', [])
+        .controller('AddNumbersController', function($scope) {
+            $scope.AddNumbers = function() {
+                var a = $scope.a || 0;
+                var b = $scope.b || 0;
+                $scope.sum = a+b;
+            }
+    	});
+	</script>
+</body>
+</html>
